@@ -33,14 +33,6 @@ function App() {
       await await window.ethereum.send('eth_requestAccounts');
       const accounts = await web3.eth.getAccounts();
 
-      // Ethers
-      const providerLocal = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = providerLocal.getSigner();
-
-      const provider = new ethers.providers.Web3Provider(web3.currentProvider);
-      let ethersContract = new ethers.Contract('0x75107940Cf1121232C0559c747A986DEfbc69DA9', cabi, provider)
-      let sxpContract = contract('Sxp', ethersContract)
-
       getBlance();
       SetAccount(accounts[0])
       return true;
