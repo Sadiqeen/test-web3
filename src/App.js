@@ -29,10 +29,8 @@ function App() {
   const ethEnabled = async () => {
     if (window.ethereum) {
       // Web 3
-      const web3 = new Web3(window.ethereum);
-      await await window.ethereum.send('eth_requestAccounts');
-      const accounts = await web3.eth.getAccounts();
-
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      
       getBlance();
       SetAccount(accounts[0])
       return true;
